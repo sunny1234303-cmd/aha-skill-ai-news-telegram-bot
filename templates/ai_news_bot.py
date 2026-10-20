@@ -287,6 +287,8 @@ def classify(company, flag, title, snippet=""):
 
 def build_message(tag, label, company, src, title, link, key):
     head = f"[{tag}! {company.lower()}] {title}"
+    if tag == "alert":  # 큰 장애는 한눈에 띄도록 맨 앞에 빨간 원
+        head = "🔴 " + head
     body = ""
     if label.startswith("신규 모델 (문서"):
         body = "📝 공식 문서의 모델 목록에 새 모델 ID가 추가됐어요. 링크에서 확인하세요."

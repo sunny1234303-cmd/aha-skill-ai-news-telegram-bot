@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+<key>Label</key><string>com.ai-news-bot-checkup</string>
+<key>ProgramArguments</key><array><string>/usr/bin/python3</string><string>-I</string><string>__CHECKUP_PATH__</string></array>
+<key>StartCalendarInterval</key><dict><key>Hour</key><integer>10</integer><key>Minute</key><integer>5</integer></dict>
+<key>StandardOutPath</key><string>__BOT_DIR__/checkup.log</string>
+<key>StandardErrorPath</key><string>__BOT_DIR__/checkup.err.log</string>
+</dict></plist>

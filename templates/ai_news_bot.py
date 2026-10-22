@@ -54,6 +54,7 @@ FEEDS = [
     ("Gemini 모델 목록", "Gemini", "model_ids:gemini", "https://ai.google.dev/gemini-api/docs/models"),
     ("OpenAI 모델 목록", "ChatGPT", "model_ids:gpt", "https://platform.openai.com/docs/models"),
     ("Claude 릴리스 노트", "Claude", "changelog", "https://docs.claude.com/en/release-notes/overview"),
+    ("Claude 앱 릴리스 노트", "Claude", "changelog", "https://support.claude.com/en/articles/12138966-release-notes"),
     ("Gemini API 변경 이력", "Gemini", "changelog", "https://ai.google.dev/gemini-api/docs/changelog"),
     ("Anthropic 뉴스", "Claude", "anthropic_news", "https://www.anthropic.com/news"),
     ("Claude Code 릴리스", "Claude", "feed_model", "https://github.com/anthropics/claude-code/releases.atom"),
@@ -289,6 +290,8 @@ def build_message(tag, label, company, src, title, link, key):
     head = f"[{tag}! {company.lower()}] {title}"
     if tag == "alert":  # 큰 장애는 한눈에 띄도록 맨 앞에 빨간 원
         head = "🔴 " + head
+    elif tag == "new":  # 새 모델·앱 소식은 초록 원
+        head = "🟢 " + head
     body = ""
     if label.startswith("신규 모델 (문서"):
         body = "📝 공식 문서의 모델 목록에 새 모델 ID가 추가됐어요. 링크에서 확인하세요."
